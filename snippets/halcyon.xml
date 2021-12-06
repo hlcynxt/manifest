@@ -41,8 +41,10 @@
   <project path="device/qcom/sepolicy-legacy-um" name="device_qcom_sepolicy-legacy-um" revision="twelve" remote="halcyon"/>
 
   <!-- External Repos -->
+  <project path="external/colorkt" name="external_colorkt" remote="halcyon" />
   <project path="external/gptfdisk" name="external_gptfdisk" remote="halcyon"/>
   <project path="external/ntfs-3g" name="external_ntfs-3g" remote="halcyon"/>
+  <project path="external/themelib" name="external_themelib" remote="halcyon" />
   <project path="external/selinux" name="external_selinux" remote="halcyon"/>
 
   <!-- Frameworks Repos -->

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="halcyon"
+           fetch="https://github.com/hlcynprjct" 
+           revision="twelve" />
+
+  <remote  name="halcyon-gitlab"
+           fetch="https://gitlab.com/hlcynprjct" 
+           revision="twelve" />
+
+    <!-- Build Repos -->
+  <project path="build/make" name="build_make" remote="halcyon" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+
+  <project path="build/blueprint" name="build_blueprint" remote="halcyon" />
+
+  <project path="build/soong" name="build_soong" remote="halcyon" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- General Repos -->
+  <project path="bionic" name="bionic" remote="halcyon"/>
+  <project path="bootable/recovery" name="bootable_recovery" remote="halcyon" />
+  <project name="libcore" path="libcore" remote="halcyon"/>
+  <project name="manifest" path="manifest" remote="halcyon"/>
+
+  <!-- SEPolicy Repos -->
+  <project path="device/halcyon/sepolicy" name="device_halcyon_sepolicy" revision="twelve" remote="halcyon"/>
+  <project path="device/qcom/sepolicy" name="device_qcom_sepolicy" revision="twelve" remote="halcyon"/>
+  <project path="device/qcom/sepolicy_vndr" name="device_qcom_sepolicy_vndr" remote="halcyon"/>
+  <project path="device/qcom/sepolicy-legacy" name="device_qcom_sepolicy-legacy" revision="twelve" remote="halcyon" />
+  <project path="device/qcom/sepolicy-legacy-um" name="device_qcom_sepolicy-legacy-um" revision="twelve" remote="halcyon"/>
+
+  <!-- External Repos -->
+  <project path="external/gptfdisk" name="external_gptfdisk" remote="halcyon"/>
+  <project path="external/ntfs-3g" name="external_ntfs-3g" remote="halcyon"/>
+  <project path="external/selinux" name="external_selinux" remote="halcyon"/>
+
+  <!-- Frameworks Repos -->
+  <project path="frameworks/av" name="frameworks_av" remote="halcyon"/>
+  <project path="frameworks/base" name="frameworks_base" remote="halcyon"/>
+  <project path="frameworks/native" name="frameworks_native" remote="halcyon"/>
+  <project path="frameworks/opt/net/wifi" name="frameworks_opt_net_wifi" remote="halcyon"/>
+  <project path="frameworks/opt/telephony" name="frameworks_opt_telephony" remote="halcyon"/>
+
+  <!-- Hardware Repos -->
+  <project path="hardware/google/pixel" name="hardware_google_pixel" remote="halcyon"/>
+  <project path="hardware/halcyon/interfaces" name="hardware_halcyon_interfaces" remote="halcyon"/>
+  <project path="hardware/interfaces" name="hardware_interfaces" remote="halcyon"/>
+  <project path="hardware/libhardware" name="hardware_libhardware" remote="halcyon"/>
+  <project path="hardware/qcom/audio" name="hardware_qcom_audio" remote="halcyon"/>
+  <project path="hardware/qcom/camera" name="hardware_qcom_camera" remote="halcyon"/>
+  <project path="hardware/qcom/data/ipacfg-mgr" name="hardware_qcom_data_ipacfg-mgr" remote="halcyon"/>
+  <project path="hardware/qcom/display" name="hardware_qcom_display" remote="halcyon"/>
+  <project path="hardware/qcom/gps" name="hardware_qcom_gps" remote="halcyon"/>
+  <project path="hardware/qcom/keymaster" name="hardware_qcom_keymaster" remote="halcyon"/>
+  <project path="hardware/qcom/media" name="hardware_qcom_media" remote="halcyon"/>
+  <project path="hardware/qcom/sdm845/data/ipacfg-mgr" name="hardware_qcom_sdm845_data_ipacfg-mgr" remote="halcyon" >
+    <linkfile src="os_pickup.bp" dest="hardware/qcom/sdm845/Android.bp" />
+  </project>
+  <project path="hardware/qcom/sdm845/display" name="hardware_qcom_sdm845_display" remote="halcyon"/>
+  <project path="hardware/qcom/sdm845/media" name="hardware_qcom_sdm845_media" remote="halcyon"/>
+  <project path="hardware/qcom/wlan" name="hardware_qcom_wlan" remote="halcyon"/>
+  <project path="hardware/ril" name="hardware_ril" remote="halcyon"/>
+  <project path="hardware/xiaomi" name="hardware_xiaomi" remote="halcyon"/>
+
+  <!-- Packages repos -->
+  <project path="packages/apps/Bluetooth" name="packages_apps_Bluetooth" remote="halcyon" />
+  <project path="packages/apps/Camera2" name="packages_apps_Camera2" remote="halcyon" />
+  <project path="packages/apps/CarrierConfig" name="packages_apps_CarrierConfig" remote="halcyon" />
+  <project path="packages/apps/ElmyraService" name="packages_apps_ElmyraService" remote="halcyon" />
+  <project path="packages/apps/Nest" name="packages_apps_Nest" remote="halcyon" />
+  <project path="packages/apps/Nfc" name="packages_apps_Nfc" remote="halcyon" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" remote="halcyon" />
+  <project path="packages/apps/Stk" name="packages_apps_Stk" remote="halcyon" />
+  <project path="packages/apps/Traceur" name="packages_apps_Traceur" remote="halcyon" />
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="halcyon" />
+  <project path="packages/services/Telephony" name="packages_services_Telephony" remote="halcyon" />
+
+  <!-- System Repos -->
+  <project path="system/bpf" name="system_bpf" remote="halcyon" />
+  <project path="system/core" name="system_core" remote="halcyon" />
+  <project path="system/netd" name="system_netd" remote="halcyon" />
+  <project path="system/sepolicy" name="system_sepolicy" remote="halcyon" />
+  <project path="system/tools/hidl" name="system_tools_hidl" remote="halcyon" />
+  <project path="system/update_engine" name="system_update_engine" remote="halcyon" />
+  <project path="system/vold" name="system_vold" remote="halcyon" />
+
+  <!-- Vendor Repos -->
+  <project path="vendor/gms" name="vendor_gms" remote="halcyon-gitlab" clone-depth="1" />
+  <project path="vendor/halcyon" name="vendor_halcyon" remote="halcyon"/>
+  <project path="vendor/halcyonui" name="vendor_halcyonui" remote="halcyon"/>
+  <project path="vendor/pixel-framework" name="vendor_pixel-framework" remote="halcyon" />
+
+  <!-- Tools Repos -->
+  <project path="tools/metalava" name="tools_metalava" remote="halcyon" />
+
+</manifest>
